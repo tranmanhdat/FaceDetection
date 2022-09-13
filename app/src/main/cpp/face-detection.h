@@ -1,7 +1,3 @@
-//
-// Created by Cuong V. Nguyen on 3/25/21.
-//
-
 #ifndef FACEDETECTION_FACE_DETECTION_H
 #define FACEDETECTION_FACE_DETECTION_H
 
