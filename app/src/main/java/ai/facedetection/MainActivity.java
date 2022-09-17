@@ -2,6 +2,7 @@ package ai.facedetection;
 import android.Manifest;
 import android.graphics.*;
 import android.content.res.AssetManager;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.SystemClock;
 import androidx.core.app.ActivityCompat;
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity{
 
     private final String MODEL_FILE = "centerface_w640_h480.tflite";
     private long detectorPointer = 0L;
-    private float heatmapThreshold = (float) 0.7;
-    private float nmsThreshold = (float) 0.3;
+    private float heatmapThreshold = (float) 0.6;
+    private float nmsThreshold = (float) 0.5;
     private final int nFaceInfo = 5;
 
     private int frameWidth = 0;
@@ -136,7 +137,7 @@ public class MainActivity extends AppCompatActivity{
         float y1 = yOffset + detections[idx*nFaceInfo + 1] * scaleY;
         float x2 = xOffset + detections[idx*nFaceInfo + 2] * scaleX;
         float y2 = yOffset + detections[idx*nFaceInfo + 3] * scaleY;
-
+        Log.i(TAG, String.format("%f %f",xOffset,yOffset));
         p.moveTo(x1, y1);
         p.lineTo(x1, y2);
         p.lineTo(x2, y2);
